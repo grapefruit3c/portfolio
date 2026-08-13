@@ -499,51 +499,120 @@ section { padding: 100px 24px; }
   justify-content: center;
 }
 
-/* ===== Certificates ===== */
-#certs .cert-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
+/* ===== Project repo link ===== */
+.project-repo {
+  margin-top: 20px;
+  border-top: 1px solid var(--rule);
+  padding-top: 20px;
 }
-.cert-card {
+.project-repo a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 20px;
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--ink);
+  border: 1px solid var(--rule);
+  background: var(--surface2);
+  transition: all 0.3s;
+}
+.project-repo a:hover {
+  border-color: var(--accent);
+  background: rgba(59,130,246,0.08);
+  color: var(--accent);
+}
+.project-repo a svg {
+  width: 16px; height: 16px;
+  fill: currentColor;
+}
+
+/* ===== Learning ===== */
+#learning .learning-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+.learning-card {
   background: var(--surface);
   border: 1px solid var(--rule);
   border-radius: var(--radius);
-  padding: 28px;
+  padding: 32px;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+.learning-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 4px; height: 100%;
+  background: linear-gradient(to bottom, var(--accent2), var(--accent));
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.learning-card:hover {
+  border-color: rgba(6,182,212,0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+}
+.learning-card:hover::before { opacity: 1; }
+.learning-header {
   display: flex;
   align-items: center;
-  gap: 20px;
-  transition: all 0.3s;
+  gap: 16px;
+  margin-bottom: 16px;
 }
-.cert-card:hover {
-  border-color: var(--accent2);
-  transform: translateY(-2px);
-}
-.cert-icon {
-  width: 52px; height: 52px;
+.learning-icon {
+  width: 48px; height: 48px;
   flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 12px;
-  background: linear-gradient(135deg, rgba(59,130,246,0.1), rgba(6,182,212,0.1));
+  background: rgba(6,182,212,0.1);
+  font-size: 1.5rem;
 }
-.cert-icon svg {
-  width: 26px; height: 26px;
-  stroke: var(--accent2);
-  fill: none;
-  stroke-width: 2;
-}
-.cert-info h3 {
+.learning-header h3 {
   font-family: var(--font-heading);
-  font-size: 1rem;
-  font-weight: 600;
+  font-size: 1.15rem;
+  font-weight: 700;
   color: var(--ink);
-  margin-bottom: 4px;
 }
-.cert-info p {
-  font-size: 0.825rem;
-  color: var(--muted2);
+.learning-desc {
+  color: var(--muted);
+  font-size: 0.925rem;
+  line-height: 1.85;
+  margin-bottom: 16px;
+}
+.learning-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+.learning-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 20px;
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent2);
+  border: 1px solid rgba(6,182,212,0.3);
+  background: rgba(6,182,212,0.05);
+  transition: all 0.3s;
+}
+.learning-link:hover {
+  background: rgba(6,182,212,0.1);
+  border-color: var(--accent2);
+  transform: translateY(-1px);
+}
+.learning-link svg {
+  width: 16px; height: 16px;
+  fill: currentColor;
 }
 
 /* ===== Contact ===== */
@@ -559,9 +628,9 @@ section { padding: 100px 24px; }
 }
 .contact-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  max-width: 720px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  max-width: 840px;
   margin: 0 auto;
 }
 .contact-card {
@@ -652,8 +721,7 @@ footer p a:hover { color: var(--accent2); }
   section { padding: 70px 20px; }
   #hero { min-height: auto; padding-top: 100px; padding-bottom: 60px; }
   #about .about-grid { grid-template-columns: 1fr; }
-  #certs .cert-grid { grid-template-columns: 1fr; }
-  .contact-grid { grid-template-columns: 1fr; }
+  .contact-grid { grid-template-columns: repeat(2, 1fr); }
   .section-title { font-size: 1.6rem; }
   .project-header { flex-direction: column; }
   .project-card { padding: 24px; }
@@ -673,7 +741,7 @@ footer p a:hover { color: var(--accent2); }
       <li><a href="#about">关于</a></li>
       <li><a href="#skills">技能</a></li>
       <li><a href="#projects">项目</a></li>
-      <li><a href="#certs">证书</a></li>
+      <li><a href="#learning">学习</a></li>
       <li><a href="#contact">联系</a></li>
     </ul>
     <button class="nav-toggle" id="nav-toggle" aria-label="菜单">
@@ -874,6 +942,12 @@ footer p a:hover { color: var(--accent2); }
             <li>利用 Halcon 开发环境进行算法脚本原理性验证与测试，完成 Halcon 算子向 C# 函数封装的二次开发预研</li>
           </ol>
         </div>
+        <div class="project-repo">
+          <a href="https://github.com/grapefruit3c/FirstDemo-WPFwithHalcon" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+            查看源码：FirstDemo-WPFwithHalcon
+          </a>
+        </div>
       </div>
 
       <!-- Project 3 -->
@@ -933,29 +1007,30 @@ footer p a:hover { color: var(--accent2); }
   </div>
 </section>
 
-<!-- ===== Certificates ===== -->
-<section id="certs">
+<!-- ===== Learning ===== -->
+<section id="learning">
   <div class="container">
-    <div class="section-label fade-in">CERTIFICATES</div>
-    <h2 class="section-title fade-in">资格证书</h2>
-    <div class="cert-grid">
-      <div class="cert-card fade-in">
-        <div class="cert-icon">
-          <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+    <div class="section-label fade-in">LEARNING</div>
+    <h2 class="section-title fade-in">学习记录</h2>
+    <div class="learning-grid">
+      <div class="learning-card fade-in">
+        <div class="learning-header">
+          <div class="learning-icon">📘</div>
+          <h3>康耐视 VisionPro 学习记录</h3>
         </div>
-        <div class="cert-info">
-          <h3>电工职业资格证书（二级）</h3>
-          <p>国家职业资格认证</p>
+        <p class="learning-desc">
+          系统学习康耐视 VisionPro 视觉软件开发工具的使用，涵盖工具块编程、图像采集、模板匹配、斑点分析、坐标变换等核心功能，记录了从基础操作到实际项目应用的完整学习过程。
+        </p>
+        <div class="learning-tags">
+          <span class="tech-badge">康耐视 VisionPro</span>
+          <span class="tech-badge">C# 二次开发</span>
+          <span class="tech-badge">视觉算法</span>
+          <span class="tech-badge">模板匹配</span>
         </div>
-      </div>
-      <div class="cert-card fade-in">
-        <div class="cert-icon">
-          <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4"/><path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9c2.39 0 4.68.94 6.36 2.64"/></svg>
-        </div>
-        <div class="cert-info">
-          <h3>ISO 内审员证书</h3>
-          <p>质量管理体系审核资质</p>
-        </div>
+        <a href="https://github.com/grapefruit3c/MyVisionProDemo" target="_blank" rel="noopener" class="learning-link">
+          <svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+          查看学习记录：MyVisionProDemo
+        </a>
       </div>
     </div>
   </div>
@@ -991,6 +1066,13 @@ footer p a:hover { color: var(--accent2); }
         <div class="contact-label">GITHUB</div>
         <div class="contact-value">grapefruit3c</div>
       </a>
+      <div class="contact-card fade-in">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M8.691 2.188C3.891 2.188 0 5.476 0 9.53c0 2.212 1.17 4.203 3.002 5.55a.59.59 0 0 1 .213.665l-.39 1.48c-.019.07-.048.141-.048.213 0 .163.13.295.29.295a.326.326 0 0 0 .167-.054l1.903-1.114a.864.864 0 0 1 .717-.098 10.16 10.16 0 0 0 2.837.403c.276 0 .543-.027.811-.05-.857-2.578.157-4.972 1.616-6.446 1.513-1.533 3.627-2.431 5.924-2.431.276 0 .543.018.81.045C18.36 4.512 13.97 2.188 8.691 2.188zM5.785 5.991c.642 0 1.162.529 1.162 1.18a1.17 1.17 0 0 1-1.162 1.178A1.17 1.17 0 0 1 4.623 7.17c0-.651.52-1.18 1.162-1.18zm5.813 0c.642 0 1.162.529 1.162 1.18a1.17 1.17 0 0 1-1.162 1.178 1.17 1.17 0 0 1-1.162-1.178c0-.651.52-1.18 1.162-1.18zm5.34 2.867c-3.84 0-6.96 2.591-6.96 5.788 0 3.198 3.12 5.789 6.96 5.789.702 0 1.377-.091 2.018-.26a.72.72 0 0 1 .598.082l1.584.926a.272.272 0 0 0 .14.045c.134 0 .241-.108.241-.245 0-.06-.024-.118-.04-.177l-.326-1.232a.493.493 0 0 1 .178-.555C23.221 18.617 24 16.953 24 15.148c0-3.197-3.12-5.788-6.96-5.788h-.102zm-2.562 2.718c.535 0 .969.44.969.983a.976.976 0 0 1-.969.983.976.976 0 0 1-.969-.983c0-.544.434-.983.969-.983zm4.844 0c.535 0 .969.44.969.983a.976.976 0 0 1-.969.983.976.976 0 0 1-.969-.983c0-.544.434-.983.969-.983z"/></svg>
+        </div>
+        <div class="contact-label">WECHAT</div>
+        <div class="contact-value">jzk3188523126</div>
+      </div>
     </div>
   </div>
 </section>
