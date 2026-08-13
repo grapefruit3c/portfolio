@@ -615,6 +615,42 @@ section { padding: 100px 24px; }
   fill: currentColor;
 }
 
+/* Knowledge base categories */
+.kb-categories {
+  margin-bottom: 20px;
+  border-top: 1px solid var(--rule);
+  padding-top: 20px;
+}
+.kb-category {
+  margin-bottom: 16px;
+}
+.kb-category:last-child { margin-bottom: 0; }
+.kb-cat-name {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+.kb-cat-topics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.kb-topic {
+  display: inline-block;
+  padding: 4px 12px;
+  font-size: 0.78rem;
+  color: var(--muted);
+  background: var(--surface2);
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  transition: all 0.2s;
+}
+.kb-topic:hover {
+  color: var(--accent2);
+  border-color: rgba(6,182,212,0.3);
+}
+
 /* ===== Contact ===== */
 #contact {
   text-align: center;
@@ -1030,6 +1066,69 @@ footer p a:hover { color: var(--accent2); }
         <a href="https://github.com/grapefruit3c/MyVisionProDemo" target="_blank" rel="noopener" class="learning-link">
           <svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
           查看学习记录：MyVisionProDemo
+        </a>
+      </div>
+
+      <!-- Obsidian Knowledge Base -->
+      <div class="learning-card fade-in">
+        <div class="learning-header">
+          <div class="learning-icon">🗂️</div>
+          <h3>Obsidian 技术知识库</h3>
+        </div>
+        <p class="learning-desc">
+          使用 Obsidian 搭建的个人技术知识库，持续记录日常工作中的问题解决方案、技术公式速查与学习心得，涵盖机器视觉、工业通讯、编程开发等多个领域，通过 Git 同步至 GitHub。
+        </p>
+        <div class="kb-categories">
+          <div class="kb-category">
+            <div class="kb-cat-name">📐 视觉算法与公式</div>
+            <div class="kb-cat-topics">
+              <span class="kb-topic">高斯成像公式</span>
+              <span class="kb-topic">景深公式</span>
+              <span class="kb-topic">镜头焦距计算</span>
+              <span class="kb-topic">常用公式速查手册</span>
+            </div>
+          </div>
+          <div class="kb-category">
+            <div class="kb-cat-name">📷 海康 VM</div>
+            <div class="kb-cat-topics">
+              <span class="kb-topic">存图脚本</span>
+              <span class="kb-topic">3D 不支持问题</span>
+              <span class="kb-topic">框架使用笔记</span>
+            </div>
+          </div>
+          <div class="kb-category">
+            <div class="kb-cat-name">🔍 康耐视</div>
+            <div class="kb-cat-topics">
+              <span class="kb-topic">In-Sight Explorer 端口占用</span>
+              <span class="kb-topic">二维码 script 记录</span>
+            </div>
+          </div>
+          <div class="kb-category">
+            <div class="kb-cat-name">💻 Halcon / C#</div>
+            <div class="kb-cat-topics">
+              <span class="kb-topic">Halcon 与 C# map 学习</span>
+              <span class="kb-topic">算法封装</span>
+            </div>
+          </div>
+          <div class="kb-category">
+            <div class="kb-cat-name">🌐 网络与系统</div>
+            <div class="kb-cat-topics">
+              <span class="kb-topic">网络抓包</span>
+              <span class="kb-topic">查找映射磁盘 IP</span>
+              <span class="kb-topic">Win 快捷键</span>
+              <span class="kb-topic">Win+R 运行命令</span>
+            </div>
+          </div>
+          <div class="kb-category">
+            <div class="kb-cat-name">⚙️ 硬件选型</div>
+            <div class="kb-cat-topics">
+              <span class="kb-topic">选型功率电压转换</span>
+            </div>
+          </div>
+        </div>
+        <a href="https://github.com/grapefruit3c/shrimp_vault" target="_blank" rel="noopener" class="learning-link">
+          <svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+          查看完整知识库：shrimp_vault
         </a>
       </div>
     </div>
