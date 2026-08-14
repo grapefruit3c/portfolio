@@ -12,7 +12,7 @@
 | 关于 | 基本信息、职业方向与个人能力概述 |
 | 专业技能 | 视觉硬件与平台、编程与算法、工业通讯与集成、视觉应用能力 |
 | 项目经验 | 工业视觉检测项目（三花汽零、恒勃股份、敏实汽车、万象股份） |
-| 学习记录 | 康耐视 VisionPro 学习记录、Obsidian 技术知识库 |
+| 学习记录 | 康耐视 VisionPro 学习记录、Obsidian 技术知识库、VisionPro VPP 宿主控件 |
 | 联系方式 | 电话、邮箱、微信、GitHub |
 
 ## 技术特点
@@ -46,7 +46,8 @@ git push
 
 ## 相关仓库
 
-- [FirstDemo-WPFwithHalcon](https://github.com/grapefruit3c/FirstDemo-WPFwithHalcon) — 恒勃股份视觉检测项目源码
+- [FirstDemo-WPFwithHalcon](https://github.com/grapefruit3c/FirstDemo-WPFwithHalcon) — C# Halcon 空滤器视觉检测系统
+- [WPFwithVisionPro](https://github.com/grapefruit3c/WPFwithVisionPro) — VisionPro VPP 通用宿主控件
 - [MyVisionProDemo](https://github.com/grapefruit3c/MyVisionProDemo) — 康耐视 VisionPro 学习记录
 - [shrimp_vault](https://github.com/grapefruit3c/shrimp_vault) — Obsidian 技术知识库
 
